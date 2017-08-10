@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 
 @Controller
 public class MainController {
@@ -20,8 +21,10 @@ public class MainController {
 
     }
     @PostMapping("/welcome")
-    public String confirmnif(@Valid @ModelAttribute("datInput") UserInput datInput, BindingResult result){
-
+    public String confirmnif(@Valid @ModelAttribute("datInput") UserInput datInput, BindingResult result, Model sendModel){
+        ArrayList<String> toSend = new ArrayList<String>();
+        toSend = datInput.fizzBuzzActual(datInput.getNumber());
+        sendModel.addAttribute("datArrayList", toSend);
         if(result.hasErrors()){
             return "welcome";
         }
