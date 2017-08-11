@@ -10,7 +10,14 @@
             Your number is [[${datInput.number}]] <br />
         </p>
 
+    <table>
+       <tr th:each="i : ${datArrayList}">
+           <td align="center" th:text="${i}"></td>
+       </tr>
 
+
+
+    </table>
 
 
     </body>
