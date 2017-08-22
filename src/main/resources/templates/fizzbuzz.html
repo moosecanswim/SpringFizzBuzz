@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8"/>
-        <title>AAAANNNNDDDD FIZZ BUZZ</title>
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8"/>
+    <title>AAAANNNNDDDD FIZZ BUZZ</title>
+    <th:block th:replace="base::header"></th:block>
+</head>
+<body>
+    <th:block th:replace="base::navigation"></th:block>
+    <div class="container">
+
         <p th:inline="text">
             Your name is [[${datInput.name}]] <br />
             Your number is [[${datInput.number}]] <br />
         </p>
 
-    <table>
-       <tr th:each="i : ${datArrayList}">
-           <td align="center" th:text="${i}"></td>
-       </tr>
+        <table>
+            <tr th:each="i : ${datArrayList}">
+                <td align="center" th:text="${i}"></td>
+            </tr>
 
 
 
-    </table>
-
-
-    </body>
+        </table>
+        <th:block th:replace="base::footer"></th:block>
+    </div>
+</body>
 </html>
